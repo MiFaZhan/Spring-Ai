@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "MySQL Server": {
+      "command": "mysql_mcp_server",
+      "args": [],
+      "env": {
+        "MYSQL_DATABASE": "spring_ai",
+        "MYSQL_HOST": "localhost",
+        "MYSQL_PASSWORD": "0307",
+        "MYSQL_PORT": "3306",
+        "MYSQL_USER": "root"
+      }
+    }
+  }
+}

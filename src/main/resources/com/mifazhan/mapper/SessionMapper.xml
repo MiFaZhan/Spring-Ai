@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mifazhan.mapper.SessionMapper">
+
+    <resultMap id="BaseResultMap" type="com.mifazhan.domain.entity.Session">
+            <id property="sessionId" column="session_id" />
+            <result property="title" column="title" />
+            <result property="creationTime" column="creation_time" />
+            <result property="updateTime" column="update_time" />
+            <result property="deleted" column="deleted" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        session_id,title,creation_time,update_time,deleted
+    </sql>
+</mapper>
