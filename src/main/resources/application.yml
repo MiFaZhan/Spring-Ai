@@ -1,0 +1,48 @@
+# 应用服务器配置
+server:
+  port: 8080
+
+# Spring 框架配置
+spring:
+  # 数据库配置 - 通过环境变量注入
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据库连接URL
+    url: ${DATABASE_URL:jdbc:mysql://localhost:3306/spring_ai?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    # 数据库用户名
+    username: ${DATABASE_USERNAME:root}
+    # 数据库密码
+    password: ${DATABASE_PASSWORD:your_password}
+  
+  # JSON 序列化配置
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  # Spring AI 配置 - 支持多种AI模型提供商
+  ai:
+    openai:
+      # AI模型API密钥
+      api-key: ${OPENAI_API_KEY:your_api_key_here}
+      # AI服务提供商基础URL
+      base-url: ${OPENAI_BASE_URL:https://open.bigmodel.cn/api/paas}
+      chat:
+        # API端点路径 - 根据AI服务提供商调整
+        completions-path: ${OPENAI_COMPLETIONS_PATH:/v4/chat/completions}
+        options:
+          # 使用的AI模型名称
+          model: ${OPENAI_MODEL:glm-4.5-flash}
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  # SQL日志输出配置
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  
+  # 全局配置
+  global-config:
+    db-config:
+      # 逻辑删除字段配置
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
